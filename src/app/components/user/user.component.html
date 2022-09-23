@@ -1,27 +1,31 @@
-<button [routerLink]="'/home'">Home</button>
-<p>Users</p>
-<table>
-    <thead>
-        <th>Name</th>
-        <th>CompanyName</th>
-        <th>Designation</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <input type="=text" placeholder="search" [(ngModel)]="nameSearch"/>
-            </td>
-            <td>
-                <input type="=text" placeholder="search" [(ngModel)]="companySearch"/>
-            </td>
-            <td>
-                <input type="=text" placeholder="search"  [(ngModel)]="designationSearch"/>
-            </td>
-        </tr>
-        <tr *ngFor="let row of employeeDetails | search: nameSearch: companySearch: designationSearch" [ngStyle]="{'background-color':(row.company.designation === 'angular Developer' ? 'lightgreen' : '')}">
-            <td>{{row.name}}</td>
-            <td>{{row.company.name}}</td>
-            <td>{{row.company.designation}}</td>
-        </tr>
-    </tbody>
-</table>
+<button [routerLink]="'/home'">Go back</button>
+<div class="userPage">
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>CompanyName</th>
+            <th>Designation</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="=text" placeholder="search" [(ngModel)]="nameSearch"/>
+                </td>
+                <td>
+                    <input type="=text" placeholder="search" [(ngModel)]="companySearch"/>
+                </td>
+                <td>
+                    <input type="=text" placeholder="search"  [(ngModel)]="designationSearch"/>
+                </td>
+            </tr>
+            <tr *ngFor="let row of employeeDetails | search: nameSearch: companySearch: designationSearch" [ngStyle]="{'background-color':(row.company.designation === 'angular Developer' ? 'lightgreen' : 'white')}">
+                <td>
+                    <div>{{row.name}}</div>
+                    <span class="email">{{row.email}}</span>
+                </td>
+                <td>{{row.company.name}}</td>
+                <td>{{row.company.designation}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
